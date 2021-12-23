@@ -12,11 +12,13 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.serenitybdd.screenplay.rest.interactions.Get;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import org.junit.platform.launcher.listeners.discovery.LauncherDiscoveryListeners;
 import org.openqa.selenium.WebDriver;
 import screenplay.api_interface.SearchAPI;
 import screenplay.questions.CurrentSearchResultCount;
 import screenplay.tasks.LookForProductItem;
 import screenplay.tasks.NavigateTo;
+
 
 import java.util.List;
 
@@ -87,6 +89,7 @@ public class SearchStepDefinitions {
         actor.attemptsTo(
                 Ensure.that(CurrentSearchResultCount.information())
                         .contains(resultList.size() +" results have been found.")
+
         );
         try {
             Thread.sleep(10000);
